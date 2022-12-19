@@ -1,9 +1,11 @@
 use std::io;
 fn main() {
+    loop {
+    println!("Type 'exit' to quit this program");
     println!("Input a number to get the corresponding fibonacci value");
     // add loop and user input, create exit situation
     let mut int = String::new();
-    loop {
+    
     io::stdin()
         .read_line(&mut int)
         .expect("Failed to read input");
