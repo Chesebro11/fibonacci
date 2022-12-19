@@ -1,7 +1,23 @@
+use std::io;
 fn main() {
-    for int in 0..15 {
-        println!( "fibonacci ({}) => {}", int, fibonacci(int));
-    }
+    println!("Input a number to get the corresponding fibonacci value");
+    // add loop and user input, create exit situation
+    let mut int = String::new();
+    loop {
+    io::stdin()
+        .read_line(&mut int)
+        .expect("Failed to read input");
+    if int.trim( ) == "exit" {
+        break;
+    };
+
+    let _int: i32 = match int.trim().parse() {
+        Ok(int) => int,
+        Err(_) => continue,
+    };
+    println!("Fibonacci ({}) => {}", int, 
+    fibonacci(_int));
+  }
 }
 
 fn fibonacci(n: i32) -> i32 {
